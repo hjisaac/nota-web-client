@@ -1,7 +1,7 @@
 {
-  "name": "notedly-web",
+  "name": "nota-web-client",
   "version": "1.0.0",
-  "description": "[WIP] Web code examples for JavaScript Everywhere by Adam Scott, published by O'Reilly Media",
+  "description": "Web client for Nota",
   "main": "src/index.js",
   "scripts": {
     "dev": "parcel src/index.html",
@@ -16,12 +16,12 @@
     "url": "git+https://github.com/javascripteverywhere/web.git"
   },
   "keywords": [],
-  "author": "Adam Scott <adam@jseverywhere.io>",
+  "author": "Isaac Houngue",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/javascripteverywhere/web/issues"
+    "url": "https://github.com/nota-web-client/issues"
   },
-  "homepage": "https://github.com/javascripteverywhere/web#readme",
+  "homepage": "https://github.com/nota-web-client#readme",
   "dependencies": {
     "@apollo/client": "3.0.0-beta.24",
     "@types/react": "^16.9.17",
