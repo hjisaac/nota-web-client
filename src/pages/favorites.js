@@ -5,14 +5,15 @@ const Favorites = () => {
         // update the document title
         document.title = "Favorites - Nota";
     });
+
+    return (
+        <div>
+            <p>There are my Favorites</p>
+        </div>
+    );
 };
 
-return (
-    <div>
-        <h1>Nota App</h1>
-        <p>There are my Favorites</p>
-    </div>
-);
+
 
 
 export default Favorites;

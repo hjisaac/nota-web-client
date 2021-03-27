@@ -1,11 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import GlobalStyle from "./components/GlobalStyle";
+import Pages from "./pages";
+
 const App = () => {
     return (
         <div>
-            <h1>Hello Nota!</h1>
-            <p>Welcome to the Nota App</p>
+            <GlobalStyle />
+            <Pages />
         </div>
     );
 };
