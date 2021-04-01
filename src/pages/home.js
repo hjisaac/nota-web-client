@@ -7,7 +7,7 @@ import NoteFeed from "../components/NoteFeed";
 
 // gql query to retrieve notes
 const getNotes = gql`
-    query NoteFeed($cursor: String) {
+    query noteFeed($cursor: String) {
         noteFeed(cursor: $cursor) {
             cursor
             hasNext
@@ -42,7 +42,38 @@ const Home = () => {
 
     // if the data fetching is successful display that data
     return (
-        <NoteFeed notes={data.noteFeed.notes}/>
+        <React.Fragment>
+            <NoteFeed notes={data.noteFeed.notes}/>
+            {
+                data.noteFeed.hasNext && (
+                    <Button onClick={
+                        () => {
+                            fetchMore({
+                                variables: {
+                                    cursor: data.noteFeed.cursor
+                                },
+                            updateQuery: (previousResult, { fetchMoreResult }) => {
+                                return {
+                                    noteFeed: {
+                                        cursor: fetchMoreResult.noteFeed.cursor,
+                                        hasNext: fetchMoreResult.noteFeed.hasNext,
+                                        notes: [
+                                            ...previousResult.noteFeed.notes,
+                                            ...fetchMoreResult.noteFeed.notes
+                                        ],
+                                        __typename: "noteFeed"
+                                    }
+                                };
+                            }
+                            })
+                        }
+                        }>
+                        Load More
+                    </Button>
+                )
+            }
+        </React.Fragment>
+        
     );
 };
 

@@ -54,7 +54,6 @@
     "graphql-request": "^3.4.0",
     "parcel-bundler": "^1.12.5",
     "prettier": "1.19.1",
-    "redbox-react": "^1.6.0",
     "test-data-bot": "0.8.0"
   }
 }
