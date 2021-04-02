@@ -3,12 +3,14 @@ import styled from "styled-components";
 import { useMutation, useApolloClient, gql } from "@apollo/client";
 
 import Button from "../components/Button";
+import UserForm from "../components/UserForm";
 
 const signUpUser = gql`
     mutation signUp($email: String!, $username: String!, $password: String!) {
         signUp(email: $email, username: $username, password: $password)
     }
 `;
+
 
 const Wrapper = styled.div`
     border: 1px solid #f5f4f0;
@@ -31,6 +33,10 @@ const Form = styled.form`
 
 
 const SignUp = props => {
+
+    // ApolloClient
+    const apolloClient = useApolloClient();
+
     // set the default state of the form
     const [values, setValues] = useState();
 
@@ -52,55 +58,23 @@ const SignUp = props => {
             // console.log the jwt when the mutation is complete
             localStorage.setItem("token",  data.signUp);
             console.log(localStorage.getItem("token"));
+            // update the local cache
+            apolloClient.writeData({
+                data: { isLoggedIn: True }
+            });
             props.history.push("/");
         }
     });
 
     return (
-        <Wrapper>
-            <h2>Sign Up</h2>
-            <Form 
-                onSubmit={event => {
-                    event.preventDefault();
-                    signUp({
-                        variables: {
-                            ...values
-                        }
-                    });
-            }}> 
-                <label htmlFor="username"> Username: </label>
-                <input 
-                    required 
-                    type="text" 
-                    id="username" 
-                    name="username" 
-                    placeholder="Username"
-                    onChange={onChange}
-                />
-
-                <label htmlFor="email"> Email: </label>
-                <input 
-                    required 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    placeholder="Email" 
-                    onChange={onChange}
-                />
-
-                <label htmlFor="password"> Password: </label>
-                <input 
-                    required 
-                    type="password" 
-                    id="password" 
-                    name="password" 
-                    placeholder="Password" 
-                    onChange={onChange}
-                />
-
-                <Button type="submit">Submit</Button>
-            </Form>
-        </Wrapper>
+        <React.Fragment>
+            <UserForm action={signUp} formType="signup" />
+            {/* if data is loading, display a loading message */}
+            { loading && <p>loading...</p> }
+            {/* if there is an error, display error message */}
+            { console.log(error) }
+            { error && <p>Error- Account creation failed</p> }
+        </React.Fragment>
     );
 };
 
