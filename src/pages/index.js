@@ -9,14 +9,9 @@ import Layout from "../components/Layout";
 import NotePage from "../pages/note";
 import SignUp from "./signup"; 
 import signIn from "./signin";
-import { Component } from "react";
+import CreateNote from "./createnote";
+import { getUserLoggingState } from "../gql/query";
 
-
-const getUserLoggingState = gql`
-    {
-        isLoggedIn @client
-    }
-`;
 
 
 // add the PrivateRoute component below our `Pages` component
@@ -57,11 +52,15 @@ const Pages = () => {
             {/* wrap our routes withing the Layout component */}
             <Layout>
                 <Route exact path="/" component={Home} />
-                <PrivateRoute path="/mynotes" component={MyNotes} />
-                <PrivateRoute path="/favorites" component={Favorites} />
+                {/* <PrivateRoute path="/mynotes" component={MyNotes} /> */}
+                {/* <PrivateRoute path="/favorites" component={Favorites} /> */}
+                <Route path="/mynotes" component={MyNotes} />
+                <Route path="/favorites" component={Favorites} />
                 <Route path="/note/:id" component={NotePage} />
-                <Route path="/signup" component={SignUp}/>
-                <Route path="/signin" component={signIn}/>
+                <Route path="/signup" component={SignUp} />
+                <Route path="/signin" component={signIn} />
+                {/* <PrivateRoute path="/create" component={CreateNote} /> */}
+                <Route path="/create" component={CreateNote} />
             </Layout>
 
         </Router>

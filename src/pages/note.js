@@ -3,23 +3,8 @@ import { useQuery, gql } from "@apollo/client";
 
 import NoteFeed from "../components/NoteFeed";
 import Note from "../components/Note";
+import { getNote } from "../gql/query";
 
-const getNote = gql`
-query note($id: ID!) {
-    note(id: $id) {
-        id
-        createdAt
-        content
-        favoriteCount
-        author {
-            username
-            id
-            avatar
-        }
-    }
-}
-    
-`;
 
 const NotePage = props => {
     // store the id from the URL as a variable

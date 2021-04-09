@@ -5,13 +5,8 @@ import { Link, withRouter } from "react-router-dom";
 
 import logo from "../img/logo.svg";
 import ButtonAsLink from "./ButtonAsLink";
+import { getUserLoggingState } from "../gql/query";
 
-
-const getUserLoggingState = gql`
-    {
-        isLoggedIn @client
-    }
-`;
 
 const UserState = styled.div`
     margin-left: auto;

@@ -22,7 +22,7 @@ const signIn = props => {
                 // store the token
                 localStorage.setItem("token", data.signIn);
                 // update the local cache 
-                client.writeData({ data: { isLoggedIn: true } });
+                apolloClient.writeData({ data: { isLoggedIn: true } });
                 // redirect the user to the home page
                 props.history.push("/");
             }

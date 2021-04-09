@@ -4,28 +4,8 @@ import ReactMarkdown from "react-markdown";
 
 import Button from "../components/Button";
 import NoteFeed from "../components/NoteFeed";
+import { getNotes } from "../gql/query";
 
-// gql query to retrieve notes
-const getNotes = gql`
-    query noteFeed($cursor: String) {
-        noteFeed(cursor: $cursor) {
-            cursor
-            hasNext
-            notes {
-                id
-                createdAt
-                content
-                favoriteCount
-                author {
-                    username
-                    id
-                    avatar
-                    email
-                }
-            }
-        }
-    }
-`;
 
 const Home = () => {
 

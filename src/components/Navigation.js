@@ -58,6 +58,10 @@ const Navigation = () =>  {
                     <span aria-hidden="true" role="img">🌟</span>
                     <Link to="/favorites"> Favorites </Link>
                 </li>
+                <li>
+                    <span aria-hidden="true" role="img">🛢️</span>
+                    <Link to="/create"> New note </Link>
+                </li>
         </NavList>
         </Nav>
     );
