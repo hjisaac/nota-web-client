@@ -11,7 +11,7 @@ import SignUp from "./signup";
 import signIn from "./signin";
 import CreateNote from "./createnote";
 import { getUserLoggingState } from "../gql/query";
-
+import EditNote from "./editnote";
 
 
 // add the PrivateRoute component below our `Pages` component
@@ -61,6 +61,7 @@ const Pages = () => {
                 <Route path="/signin" component={signIn} />
                 {/* <PrivateRoute path="/create" component={CreateNote} /> */}
                 <Route path="/create" component={CreateNote} />
+                <Route path="/edit/:id" component={EditNote} />
             </Layout>
 
         </Router>

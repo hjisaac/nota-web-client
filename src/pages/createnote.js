@@ -37,7 +37,6 @@ const CreateNote = props => {
         onCompleted: data => {
             // when completed, redirect the user to the note page
             props.history.push(`note/${data.createNote.id}`);
-            console.log(data);
         }
     });
 

@@ -107,5 +107,15 @@ const getCurrentUserFavorites = gql`
     }
 `;
 
+const getCurrentUser = gql`
+    query me {
+        me {
+            id
+            favorites {
+                id
+            }
+        }
+    }
+`;
 
-export { getNote, getNotes, getUserLoggingState, getCurrentUserNotes, getCurrentUserFavorites };         
+export { getNote, getNotes, getUserLoggingState, getCurrentUserNotes, getCurrentUserFavorites, getCurrentUser };         

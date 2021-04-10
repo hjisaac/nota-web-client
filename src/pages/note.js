@@ -1,7 +1,6 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 
-import NoteFeed from "../components/NoteFeed";
 import Note from "../components/Note";
 import { getNote } from "../gql/query";
 
@@ -9,7 +8,8 @@ import { getNote } from "../gql/query";
 const NotePage = props => {
     // store the id from the URL as a variable
     const id = props.match.params.id;
-
+    console.log(props.match.params)
+    console.log(id);
     const { loading, error, data } = useQuery(getNote, { variables: { id }});
 
     if(loading) {
