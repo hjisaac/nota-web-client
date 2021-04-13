@@ -20,4 +20,10 @@ const editNote = gql`
     }
 `;
 
-export { editNote };
+const deleteNote = gql`
+    mutation deleteNote($id: ID!) {
+        deleteNote(id: $id)
+    }
+`;
+
+export { editNote, deleteNote };

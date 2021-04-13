@@ -19,6 +19,7 @@ const EditNote = props => {
             id
         }, 
         onCompleted: () => {
+            // console.log("hello since `onCompleted event from editNote component`");
             props.history.push(`/note/${id}`);
         }
     });

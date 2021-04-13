@@ -14,10 +14,6 @@ const NoteWrapper = styled.div`
 
 const NoteFeed = ({ notes }) => {
 
-    for (const note of notes) {
-        console.log(note.id);
-    }
-
     return (
         <div>
             {
