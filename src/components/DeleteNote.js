@@ -20,7 +20,7 @@ const DeleteNote = (props) => {
         
     }); 
     
-    return <ButtonAsLink onClick={dropNote} > Remove note </ButtonAsLink>;
+    return <ButtonAsLink onClick={dropNote} > Remove </ButtonAsLink>;
 };
 
 export default withRouter(DeleteNote);
