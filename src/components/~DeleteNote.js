@@ -4,23 +4,25 @@ import { withRouter } from "react-router-dom";
 
 import ButtonAsLink from "./ButtonAsLink";
 import { deleteNote } from "../gql/mutation";
+// import queries to refresh after note deletion
 import { getCurrentUserNotes, getNotes } from "../gql/query";
 
-const DeleteNote = (props) => {
-    const [dropNote] = useMutation(deleteNote, {
+const DeleteNote = props => {
+    
+    const  [dropNote] = useMutation(deleteNote, {
         variables: {
             id: props.noteId
         },
-        // refetch note list queries to update the cache
         refetchQueries: [{ query: getCurrentUserNotes, getNotes }],
         onCompleted: data => {
-            // redirect the user to /mynotes
             props.history.push("/mynotes");
         }
-        
-    }); 
-    
-    return <ButtonAsLink onClick={dropNote} > Remove note </ButtonAsLink>;
+    });
+
+    return (
+        <ButtonAsLink onClick={() => "hello worrrrrrrrrrrl"}>Delete Note</ButtonAsLink>
+    );
 };
+
 
 export default withRouter(DeleteNote);

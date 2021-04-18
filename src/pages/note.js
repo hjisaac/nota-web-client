@@ -8,8 +8,7 @@ import { getNote } from "../gql/query";
 const NotePage = props => {
     // store the id from the URL as a variable
     const id = props.match.params.id;
-    console.log(props.match.params);
-    console.log(id);
+
     const { loading, error, data } = useQuery(getNote, { variables: { id }});
 
     if(loading) {

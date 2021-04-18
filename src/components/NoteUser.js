@@ -2,13 +2,12 @@ import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { getCurrentUser } from "../gql/query";
-import { DeleteNote } from "../components/DeleteNote";
+import DeleteNote from "./DeleteNote";
 
 
 const NoteUser = props => {
 
     const { loading, error, data } = useQuery(getCurrentUser);
-    console.log("Lorem ipsum dolores from `NoteUser` component");
     // if the data is loading display a loading message
     if(loading) {
         return <p>Loading...</p>;
@@ -24,6 +23,7 @@ const NoteUser = props => {
                     <React.Fragment>
                         <Link to={`/edit/${props.note.id}`}>Edit</Link>
                         <br/>
+                        {console.log(props)}
                         <DeleteNote noteId={props.note.id} />
                     </React.Fragment> 
                 )
