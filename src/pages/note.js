@@ -17,7 +17,7 @@ const NotePage = props => {
 
     if(error) {
         console.log(error);
-        return <p> Error! </p>
+        return <p> Error! Can not fetch data </p>
     }
 
     return (

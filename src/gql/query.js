@@ -66,6 +66,7 @@ const getUserLoggingState = gql`
     }   
 `;
 
+
 const getCurrentUserNotes = gql`
     query me {
         me {
@@ -85,6 +86,7 @@ const getCurrentUserNotes = gql`
         }
     }
 `;
+
 
 const getCurrentUserFavorites = gql`
     query me {
@@ -107,6 +109,7 @@ const getCurrentUserFavorites = gql`
     }
 `;
 
+
 const getCurrentUser = gql`
     query me {
         me {
@@ -117,5 +120,6 @@ const getCurrentUser = gql`
         }
     }
 `;
+
 
 export { getNote, getNotes, getUserLoggingState, getCurrentUserNotes, getCurrentUserFavorites, getCurrentUser };         

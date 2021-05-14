@@ -35,7 +35,7 @@ const signIn = props => {
             {/* if the data is loading, display loading message */}
             { loading && <p>Loading...</p> }
             {/* if there is an error display an error message*/}
-            { error && <p>Error- Sign in Failed</p>}
+            { error && <p>Check your email/username and password</p>}
         </React.Fragment>
     );
 }

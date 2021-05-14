@@ -12,9 +12,11 @@ const MyNotes = () => {
     });
 
     const { loading, error, data } = useQuery(getCurrentUserNotes);
+
     if(loading) {
         return <p>Loading...</p>;
     }
+
     if(error) {
         return <p>{`Error- ${error.message}`}</p>;
     }

@@ -1,0 +1,14 @@
+{ ...rest }
+
+render={props => {
+    data.isLoggedIn === true ? (
+        <Component {...props} />
+    ) : (
+        <Redirect
+            to={{
+                pathname: "/signin",
+                state: { from: props.location }
+            }}
+        />
+    )
+}}
